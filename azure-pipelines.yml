@@ -6,21 +6,14 @@ pool:
 
 steps:
 - script: |
-    echo "Pulling Docker image: ubuntu"
-    docker pull ubuntu
-    echo "Saving image to ubuntu.tar"
-    docker save ubuntu -o ubuntu.tar
-  displayName: 'Pull and Save Docker Image'
-
-- script: |
-    echo "Listing generated tar file..."
-    ls -lh ubuntu.tar
-  displayName: 'List Tar File'
+    echo "Listing contents of the repository..."
+    ls -la $(Build.SourcesDirectory)
+  displayName: 'List Repo Directory'
 
 - task: Jacked@1
   inputs:
     token: 'cn_VLNgDRcCTMbRMeW84J7en2Y2'
-    scanType: 'tar'
-    scanName: 'ubuntu.tar'
+    scanType: 'directory'
+    scanName: '$(Build.SourcesDirectory)'
     failCriteria: 'medium'
     skipBuildFail: 'false'
