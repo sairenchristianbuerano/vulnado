@@ -1,0 +1,19 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: |
+    echo "Listing contents of the repository..."
+    ls -la $(Build.SourcesDirectory)
+  displayName: 'List Repo Directory'
+
+- task: Jacked@1
+  inputs:
+    token: 'cn_VLNgDRcCTMbRMeW84J7en2Y2'
+    scanType: 'directory'
+    scanName: '$(Build.SourcesDirectory)'
+    failCriteria: 'medium'
+    skipBuildFail: 'false'
