@@ -17,3 +17,11 @@ steps:
     scanName: '$(Build.SourcesDirectory)'
     failCriteria: 'medium'
     skipBuildFail: 'false'
+
+- task: Diggity@1
+  inputs:
+    token: 'cn_VLNgDRcCTMbRMeW84J7en2Y2'
+    scanType: 'image'
+    scanName: 'ubuntu'
+    failCriteria: 'medium'
+    skipBuildFail: 'false'
