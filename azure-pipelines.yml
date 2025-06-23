@@ -10,6 +10,14 @@ steps:
     ls -la $(Build.SourcesDirectory)
   displayName: 'List Repo Directory'
 
+
+- script: |
+    echo "Pulling Docker image: ubuntu"
+    docker pull ubuntu
+    echo "Saving image to ubuntu.tar"
+    docker save ubuntu -o ubuntu.tar
+  displayName: 'Pull and Save Docker Image'
+
 - task: Jacked@1
   inputs:
     token: 'cn_VLNgDRcCTMbRMeW84J7en2Y2'
@@ -18,10 +26,32 @@ steps:
     failCriteria: 'medium'
     skipBuildFail: 'false'
 
+- script: |
+    echo "Listing generated tar file..."
+    ls -lh ubuntu.tar
+  displayName: 'List Tar File'
+
 - task: Diggity@1
   inputs:
     token: 'cn_VLNgDRcCTMbRMeW84J7en2Y2'
     scanType: 'image'
     scanName: 'ubuntu'
+    failCriteria: 'medium'
+    skipBuildFail: 'false'
+
+- task: Diggity@1
+  inputs:
+    token: ''
+    scanType: 'tar'
+    scanName: 'ubuntu.tar'
+    failCriteria: 'medium'
+    skipBuildFail: 'false'
+
+
+- task: Diggity@1
+  inputs:
+    token: ''
+    scanType: 'directory'
+    scanName: '$(Build.SourcesDirectory)'
     failCriteria: 'medium'
     skipBuildFail: 'false'
