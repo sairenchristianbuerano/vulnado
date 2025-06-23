@@ -41,7 +41,7 @@ steps:
 
 - task: Diggity@1
   inputs:
-    token: ''
+    token: 'cn_VLNgDRcCTMbRMeW84J7en2Y2'
     scanType: 'tar'
     scanName: 'ubuntu.tar'
     failCriteria: 'medium'
@@ -50,7 +50,7 @@ steps:
 
 - task: Diggity@1
   inputs:
-    token: ''
+    token: 'cn_VLNgDRcCTMbRMeW84J7en2Y2'
     scanType: 'directory'
     scanName: '$(Build.SourcesDirectory)'
     failCriteria: 'medium'
