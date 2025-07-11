@@ -12,15 +12,15 @@ steps:
 
 
 - script: |
-    echo "Pulling Docker image: carbonetes/broker"
-    docker pull carbonetes/broker
-    echo "Saving image to broker.tar"
-    docker save carbonetes/broker -o broker.tar
+    echo "Pulling Docker image: alpine"
+    docker pull alpine
+    echo "Saving image to alpine.tar"
+    docker save alpine -o alpine.tar
   displayName: 'Pull and Save Docker Image'
 
 - script: |
     echo "Listing generated tar file..."
-    ls -lh broker.tar
+    ls -lh alpine.tar
   displayName: 'List Tar File'
 
 
@@ -37,7 +37,7 @@ steps:
   inputs:
     token: 'cn_VLNgDRcCTMbRMeW84J7en2Y2'
     scanType: 'tarball'
-    scanName: 'broker.tar'
+    scanName: 'alpine.tar'
     failCriteria: 'medium'
     skipBuildFail: 'true'
 
