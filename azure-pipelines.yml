@@ -24,28 +24,28 @@ steps:
   displayName: 'List Tar File'
 
 
-- task: Jacked@1
-  inputs:
-    token: 'cn_VLNgDRcCTMbRMeW84J7en2Y2' #cn_VLNgDRcCTMbRMeW84J7en2Y2
-    scanType: 'filesystem'
-    scanName: '$(Build.SourcesDirectory)'
-    failCriteria: 'medium'
-    skipBuildFail: 'coffee'
+# - task: Jacked@1
+#   inputs:
+#     token: 'cn_VLNgDRcCTMbRMeW84J7en2Y2' #cn_VLNgDRcCTMbRMeW84J7en2Y2
+#     scanType: 'filesystem'
+#     scanName: '$(Build.SourcesDirectory)'
+#     failCriteria: 'medium'
+#     skipBuildFail: 'coffee'
 
 
-- task: Jacked@1
-  inputs:
-    token: 'cn_VLNgDRcCTMbRMeW84J7en2Y2'
-    scanType: 'tarball'
-    scanName: 'alpine.tar'
-    failCriteria: 'medium'
-    skipBuildFail: 'true'
+# - task: Jacked@1
+#   inputs:
+#     token: 'cn_VLNgDRcCTMbRMeW84J7en2Y2'
+#     scanType: 'tarball'
+#     scanName: 'alpine.tar'
+#     failCriteria: 'medium'
+#     skipBuildFail: 'true'
 
 - task: Jacked@1
   inputs:
     token: 'cn_VLNgDRcCTMbRMeW84J7en2Y2'
     scanType: 'image'
-    scanName: 'alpine'
+    scanName: 'InvalidScanName'
     failCriteria: 'medium'
     skipBuildFail: 'true'
 
