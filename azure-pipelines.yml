@@ -21,7 +21,7 @@ steps:
 - task: Jacked@1
   inputs:
     token: 'cn_VLNgDRcCTMbRMeW84J7en2Y2'
-    scanType: 'directory'
+    scanType: 'filesystem'
     scanName: '$(Build.SourcesDirectory)'
     failCriteria: 'medium'
     skipBuildFail: 'false'
@@ -42,7 +42,7 @@ steps:
 - task: Diggity@1
   inputs:
     token: 'cn_VLNgDRcCTMbRMeW84J7en2Y2'
-    scanType: 'tar'
+    scanType: 'tarball'
     scanName: 'ubuntu.tar'
     failCriteria: 'medium'
     skipBuildFail: 'false'
@@ -51,7 +51,7 @@ steps:
 - task: Diggity@1
   inputs:
     token: 'cn_VLNgDRcCTMbRMeW84J7en2Y2'
-    scanType: 'directory'
+    scanType: 'filesystem'
     scanName: '$(Build.SourcesDirectory)'
     failCriteria: 'medium'
     skipBuildFail: 'false'
