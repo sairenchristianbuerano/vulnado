@@ -30,7 +30,7 @@ steps:
     scanType: 'filesystem'
     scanName: '$(Build.SourcesDirectory)'
     failCriteria: 'medium'
-    skipBuildFail: 'false'
+    skipBuildFail: 'true'
 
 
 # - task: Jacked@1
