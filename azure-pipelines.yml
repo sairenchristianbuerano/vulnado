@@ -47,7 +47,7 @@ steps:
     scanType: 'image'
     scanName: 'InvalidScanName'
     failCriteria: 'medium'
-    skipBuildFail: 'true'
+    skipBuildFail: 'false'
 
 
 # - task: Diggity@1
