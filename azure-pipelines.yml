@@ -45,7 +45,7 @@ steps:
   inputs:
     token: 'cn_VLNgDRcCTMbRMeW84J7en2Y2'
     scanType: 'image'
-    scanName: 'carbonetes/broker'
+    scanName: 'alpine'
     failCriteria: 'medium'
     skipBuildFail: 'true'
 
