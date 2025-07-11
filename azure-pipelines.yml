@@ -12,11 +12,17 @@ steps:
 
 
 - script: |
-    echo "Pulling Docker image: ubuntu"
-    docker pull ubuntu
-    echo "Saving image to ubuntu.tar"
-    docker save ubuntu -o ubuntu.tar
+    echo "Pulling Docker image: carbonetes/broker"
+    docker pull carbonetes/broker
+    echo "Saving image to broker.tar"
+    docker save carbonetes/broker -o broker.tar
   displayName: 'Pull and Save Docker Image'
+
+- script: |
+    echo "Listing generated tar file..."
+    ls -lh broker.tar
+  displayName: 'List Tar File'
+
 
 - task: Jacked@1
   inputs:
@@ -26,16 +32,29 @@ steps:
     failCriteria: 'medium'
     skipBuildFail: 'false'
 
-- script: |
-    echo "Listing generated tar file..."
-    ls -lh ubuntu.tar
-  displayName: 'List Tar File'
+
+- task: Jacked@1
+  inputs:
+    token: 'cn_VLNgDRcCTMbRMeW84J7en2Y2'
+    scanType: 'tarball'
+    scanName: '$(Build.SourcesDirectory)'
+    failCriteria: 'medium'
+    skipBuildFail: 'false'
+
+- task: Jacked@1
+  inputs:
+    token: 'cn_VLNgDRcCTMbRMeW84J7en2Y2'
+    scanType: 'image'
+    scanName: 'carbonetes/broker'
+    failCriteria: 'medium'
+    skipBuildFail: 'false'
+
 
 - task: Diggity@1
   inputs:
     token: 'cn_VLNgDRcCTMbRMeW84J7en2Y2'
     scanType: 'image'
-    scanName: 'ubuntu'
+    scanName: 'carbonetes/broker'
     failCriteria: 'medium'
     skipBuildFail: 'false'
 
@@ -43,7 +62,7 @@ steps:
   inputs:
     token: 'cn_VLNgDRcCTMbRMeW84J7en2Y2'
     scanType: 'tarball'
-    scanName: 'ubuntu.tar'
+    scanName: 'broker.tar'
     failCriteria: 'medium'
     skipBuildFail: 'false'
 
