@@ -26,28 +26,28 @@ steps:
 
 - task: Jacked@1
   inputs:
-    token: '' #cn_VLNgDRcCTMbRMeW84J7en2Y2
+    token: 'cn_VLNgDRcCTMbRMeW84J7en2Y2' #cn_VLNgDRcCTMbRMeW84J7en2Y2
     scanType: 'filesystem'
     scanName: '$(Build.SourcesDirectory)'
     failCriteria: 'medium'
     skipBuildFail: 'true'
 
 
-# - task: Jacked@1
-#   inputs:
-#     token: 'cn_VLNgDRcCTMbRMeW84J7en2Y2'
-#     scanType: 'tarball'
-#     scanName: 'broker.tar'
-#     failCriteria: 'medium'
-#     skipBuildFail: 'false'
+- task: Jacked@1
+  inputs:
+    token: 'cn_VLNgDRcCTMbRMeW84J7en2Y2'
+    scanType: 'tarball'
+    scanName: 'broker.tar'
+    failCriteria: 'medium'
+    skipBuildFail: 'true'
 
-# - task: Jacked@1
-#   inputs:
-#     token: 'cn_VLNgDRcCTMbRMeW84J7en2Y2'
-#     scanType: 'image'
-#     scanName: 'carbonetes/broker'
-#     failCriteria: 'medium'
-#     skipBuildFail: 'false'
+- task: Jacked@1
+  inputs:
+    token: 'cn_VLNgDRcCTMbRMeW84J7en2Y2'
+    scanType: 'image'
+    scanName: 'carbonetes/broker'
+    failCriteria: 'medium'
+    skipBuildFail: 'true'
 
 
 # - task: Diggity@1
