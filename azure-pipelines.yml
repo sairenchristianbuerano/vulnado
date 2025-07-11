@@ -53,9 +53,9 @@ steps:
 - task: Diggity@1
   inputs:
     token: 'cn_VLNgDRcCTMbRMeW84J7en2Y2'
-    scanType: 'invalidInput'
+    scanType: 'image'
     scanName: 'alpine'
-    skipBuildFail: 'true'
+    skipBuildFail: 'invalidInput'
 
 - task: Diggity@1
   inputs:
