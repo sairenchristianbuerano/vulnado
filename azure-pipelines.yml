@@ -27,10 +27,10 @@ steps:
 - task: Jacked@1
   inputs:
     token: 'cn_VLNgDRcCTMbRMeW84J7en2Y2' #cn_VLNgDRcCTMbRMeW84J7en2Y2
-    scanType: 'filesystem'
+    scanType: 'filesystemNO'
     scanName: '$(Build.SourcesDirectory)'
     failCriteria: 'medium'
-    skipBuildFail: 'true'
+    skipBuildFail: 'false'
 
 
 - task: Jacked@1
