@@ -5,23 +5,23 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-# - script: |
-#     echo "Listing contents of the repository..."
-#     ls -la $(Build.SourcesDirectory)
-#   displayName: 'List Repo Directory'
+- script: |
+    echo "Listing contents of the repository..."
+    ls -la $(Build.SourcesDirectory)
+  displayName: 'List Repo Directory'
 
 
-# - script: |
-#     echo "Pulling Docker image: alpine"
-#     docker pull alpine
-#     echo "Saving image to alpine.tar"
-#     docker save alpine -o alpine.tar
-#   displayName: 'Pull and Save Docker Image'
+- script: |
+    echo "Pulling Docker image: alpine"
+    docker pull alpine
+    echo "Saving image to alpine.tar"
+    docker save alpine -o alpine.tar
+  displayName: 'Pull and Save Docker Image'
 
-# - script: |
-#     echo "Listing generated tar file..."
-#     ls -lh alpine.tar
-#   displayName: 'List Tar File'
+- script: |
+    echo "Listing generated tar file..."
+    ls -lh alpine.tar
+  displayName: 'List Tar File'
 
 
 # - task: Jacked@1
@@ -41,36 +41,33 @@ steps:
 #     failCriteria: 'medium'
 #     skipBuildFail: 'true'
 
-- task: Jacked@1
+# - task: Jacked@1
+#   inputs:
+#     token: 'cn_VLNgDRcCTMbRMeW84J7en2Y2'
+#     scanType: 'image'
+#     scanName: 'alpine'
+#     failCriteria: 'invalidInput'
+#     skipBuildFail: 'false'
+
+
+- task: Diggity@1
   inputs:
     token: 'cn_VLNgDRcCTMbRMeW84J7en2Y2'
     scanType: 'image'
     scanName: 'alpine'
-    failCriteria: 'invalidInput'
+    skipBuildFail: 'false'
+
+- task: Diggity@1
+  inputs:
+    token: 'cn_VLNgDRcCTMbRMeW84J7en2Y2'
+    scanType: 'tarball'
+    scanName: 'alpine.tar'
     skipBuildFail: 'false'
 
 
-# - task: Diggity@1
-#   inputs:
-#     token: 'cn_VLNgDRcCTMbRMeW84J7en2Y2'
-#     scanType: 'image'
-#     scanName: 'carbonetes/broker'
-#     failCriteria: 'medium'
-#     skipBuildFail: 'false'
-
-# - task: Diggity@1
-#   inputs:
-#     token: 'cn_VLNgDRcCTMbRMeW84J7en2Y2'
-#     scanType: 'tarball'
-#     scanName: 'broker.tar'
-#     failCriteria: 'medium'
-#     skipBuildFail: 'false'
-
-
-# - task: Diggity@1
-#   inputs:
-#     token: 'cn_VLNgDRcCTMbRMeW84J7en2Y2'
-#     scanType: 'filesystem'
-#     scanName: '$(Build.SourcesDirectory)'
-#     failCriteria: 'medium'
-#     skipBuildFail: 'false'
+- task: Diggity@1
+  inputs:
+    token: 'cn_VLNgDRcCTMbRMeW84J7en2Y2'
+    scanType: 'filesystem'
+    scanName: '$(Build.SourcesDirectory)'
+    skipBuildFail: 'false'
